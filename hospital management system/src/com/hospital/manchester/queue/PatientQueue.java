@@ -8,7 +8,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class PatientQueue {
     private final Speciality speciality;
-    private final BlockingQueue<Patient> queue;
+    private final BlockingQueue<Patient> queue;// Thread-safe waiting room; blocks (pauses) consumers if the queue is empty.
 
     public PatientQueue(Speciality speciality) {
         this.speciality = speciality;
@@ -24,7 +24,4 @@ public class PatientQueue {
         return queue.take();
     }
 
-    public int getSize() {
-        return queue.size();
-    }
 }

@@ -11,22 +11,18 @@ import java.util.Map;
 public class HospitalSimulation {
     public static void main(String[] args) {
 
-        // 2. Map Enums to Queues for the Manager and Producer
         Map<Speciality, PatientQueue> queueMap = new HashMap<>();
-        // 2. Loop through all specialities and create a queue for each
         for (Speciality spec : Speciality.values()) {
             queueMap.put(spec, new PatientQueue(spec));
         }
 
-        // 3. Start Patient Arrivals (The Producer)
+        //Start Patient Arrivals
         PatientArrival arrivalTask = new PatientArrival(queueMap);
         Thread arrivalThread = new Thread(arrivalTask);
         arrivalThread.start();
 
-        // 4. Initialize Shift Manager
         ShiftManager shiftManager = new ShiftManager(queueMap);
 
-        // 5. Run Simulation for a set number of days (e.g., 2 days)
         try {
             for (int day = 1; day <= 1; day++) {
                 System.out.println("\n--- DAY " + day + " AT MANCHESTER HOSPITAL ---");

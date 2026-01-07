@@ -27,7 +27,6 @@ public class Consultant implements Runnable {
 
     @Override
     public void run() {
-
         System.out.println("[CONSULTANT] " + name + " (" + speciality + ") started " + shift + " shift.");
         while (running) {
             try {

@@ -7,7 +7,7 @@ public enum Speciality {
     SURGEON,
     PAEDIATRICIAN;
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static Speciality getRandomSpeciality() {
         Speciality[] values = Speciality.values();
